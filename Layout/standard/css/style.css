@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Hubballi&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* font-family: 'Dongle', sans-serif; */
+    /* font-family: 'Hubballi', cursive; */
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: 1px dotted blueviolet;
+    height: 2rem;
+}
+
+header > ul {
+    outline: 1px dashed red;
+    display: flex;
+    list-style: none;
+}
+header > ul:first-child > li {
+    padding-left: 1rem;
+}
+
+header > ul:last-child > li {
+    padding-right: 1rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 2rem;
+    outline: 1px dotted blueviolet;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer > p {
+    margin-right: 1rem;
+}
