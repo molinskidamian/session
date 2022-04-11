@@ -11,20 +11,18 @@
 <body>
   <header>
       <ul class="main-nav">
-    <li>
-      <a href="index.php?page=start">Strona główna</a>
+    <li class="main-nav--point">
+      <a class="main-nav--link" href="index.php?page=start">Strona główna</a>
     </li>
-    <li>
-      <a href="index.php?page=contact">Kontakt</a>
+     <li class="main-nav--point">
+      <a class="main-nav--link" href="index.php?page=gallery">Galeria</a>
+    </li>
+    <li class="main-nav--point">
+      <a class="main-nav--link" href="index.php?page=contact">Kontakt</a>
     </li>
   </ul>
 
-  <ul class="main-user-menu">
-    <li>
-      <a href="index.php?page=register">Rejestracja</a>
-    </li>
-    <li>
-      <a href="index.php?page=login">Logowanie</a>
-    </li>
-  </ul>
+  <?php include_once './Controller/userMenu.php'; ?>
+
   </header>
+  <div class="wrapper">

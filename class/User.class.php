@@ -1,14 +1,34 @@
 <?php
+class User {
+  private $login;
+  private $password;
 
- class User {
-   private $logn;
-   private $password;
+  public function setLogin($login){
+    $this->login = htmlspecialchars($login, ENT_QUOTES, 'UTF-8');
+  }
 
+  public function setPassword($password){
+    $this->password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
+  }
 
-   public function __constructor($login, $password) {
-    $this->login = $login;
-    $this->password = $password;
-   }
- }
+  public function getLogin(){
+    return $this->login;
+  }
 
- $user1 = new User();
+  public function getPassword(){
+    return $this->password;
+  }
+
+  public function setSession(){
+    $_SESSION['login'] = $this->login;
+    $_SESSION['password'] = $this->password;
+  }
+
+    public function getSessionLogin(){
+    return $_SESSION['login'];
+  }
+
+  public function getSessionPassword(){
+    return $_SESSION['password'];
+  }
+}

@@ -7,19 +7,58 @@
     padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #3a3d45;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #2786dd;
+}
+
+.btn {
+    border-radius: 2rem;
+    font-weight: 500;
+    padding: 0.75rem 3.375rem;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 1.01rem;
+    letter-spacing: 1.03px;
+}
+
+.success {
+    color: #fff;
+    background-color: #1ac7ad;
+}
+
+.danger {
+    border-color: #fb4e49;
+    color: #fc837f;
+}
+
 body {
     /* font-family: 'Dongle', sans-serif; */
     /* font-family: 'Hubballi', cursive; */
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
+    color: #75767a;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    outline: 1px dotted blueviolet;
-    height: 2rem;
+    /* outline: 1px dotted blueviolet; */
+    height: 4rem;
+    background-color: #212328;
 }
 
 header > ul {
@@ -35,22 +74,76 @@ header > ul:last-child > li {
     padding-right: 1rem;
 }
 
+.main-nav--link {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+header > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* outline: 1px dashed red; */
+}
+
 .location {
     text-align: center;
     margin: 2rem 0;
+    /* width: 100vw; */
+    /* outline: 1px dashed blue; */
+    width: 100vw;
+}
+
+input {
+    width: 25rem;
+    height: 3.25rem;
+    border: 2px solid #bfbfbf;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+}
+
+.login-form input[name="password"] {
+    margin: 1rem 0;
+}
+
+.login-form input {
+    margin-top: 1rem;
+}
+
+::placeholder {
+    color: #c8c8c8;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 footer {
     position: fixed;
     bottom: 0;
-    height: 2rem;
-    outline: 1px dotted blueviolet;
+    height: 6rem;
+    /* outline: 1px dotted blueviolet; */
     width: 100vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-color: #212328;
 }
 
 footer > p {
     margin-right: 1rem;
+    color: #fff;
+}
+
+footer > p > a {
+    color: #acacac;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+footer > p > a:hover {
+    text-decoration: underline;
 }
