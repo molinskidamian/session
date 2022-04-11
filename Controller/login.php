@@ -1,6 +1,8 @@
-<h2>
-  <?php echo $pageTitle; ?>
-</h2>
-<p>
-  <?php echo $pageDescription; ?>
-</p>
+<?php
+include_once './Controller/location.php';
+
+if(!isset($_POST['login'])){
+  include_once './Views/loginForm.php';
+} else {
+  echo '<p>Formularz został wysłany.</p>';
+}

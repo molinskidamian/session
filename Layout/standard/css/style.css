@@ -23,7 +23,7 @@ header {
 }
 
 header > ul {
-    outline: 1px dashed red;
+    /* outline: 1px dashed red; */
     display: flex;
     list-style: none;
 }
@@ -33,6 +33,11 @@ header > ul:first-child > li {
 
 header > ul:last-child > li {
     padding-right: 1rem;
+}
+
+.location {
+    text-align: center;
+    margin: 2rem 0;
 }
 
 footer {
