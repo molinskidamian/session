@@ -1,0 +1,24 @@
+{
+  "name": "session",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "prettier": "prettier-airbnb-config",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molinskidamian/session.git"
+  },
+  "author": "Damian Molinski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/molinskidamian/session/issues"
+  },
+  "homepage": "https://github.com/molinskidamian/session#readme",
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "prettier-airbnb-config": "^1.0.0"
+  }
+}
