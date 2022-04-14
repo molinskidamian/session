@@ -6,6 +6,7 @@
     if(isset($_POST['sub-register'])){
       echo '<p>Formularz rejestracyjny został wysłany</p>';
       $user = new Register($_POST['email'], $_POST['password1'], $_POST['password2']);
+      return true;
     }
     include_once './Views/registerForm.php';
   } else {
