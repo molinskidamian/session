@@ -34,6 +34,11 @@ if(isset($_GET['page'])){
       $pageDescription = 'Opis - '.$pageTitle;
       $url = './Controller/contact.php';
       break;
+    case 'install':
+      $pageTitle = 'Instalacja';
+      $pageDescription = 'Opis - '.$pageTitle;
+      $url = './install/install.php';
+      break;
 
     default:
       $pageTitle = 'Strona główna - default';

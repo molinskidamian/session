@@ -14,11 +14,14 @@
     <li class="main-nav--point">
       <a class="main-nav--link" href="index.php?page=start">Strona główna</a>
     </li>
-     <li class="main-nav--point">
+    <li class="main-nav--point">
       <a class="main-nav--link" href="index.php?page=gallery">Galeria</a>
     </li>
     <li class="main-nav--point">
       <a class="main-nav--link" href="index.php?page=contact">Kontakt</a>
+    </li>
+    <li class="main-nav--point">
+      <a class="main-nav--link danger" href="index.php?page=install">Install!</a>
     </li>
   </ul>
 
