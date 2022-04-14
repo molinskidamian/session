@@ -1,7 +1,6 @@
   <?php
 require_once './config.cfg.php';
 
-
 if(isset($_GET['page'])){
   switch ($_GET['page']) {
     case 'start':

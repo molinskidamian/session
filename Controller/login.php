@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION['id'])){
+  // If not login
+}
 include_once './Controller/location.php';
 
 if(!isset($_POST['sub-login'])){
@@ -14,7 +17,7 @@ if(!isset($_POST['sub-login'])){
     $user = new User;
     $user->setLogin($_POST['login']);
     $user->setPassword($_POST['password']);
-    $user->fintUserInDb();
+    // $user->fintUserInDb();
     $user->setSession();
     header("Refresh:0");
 }
