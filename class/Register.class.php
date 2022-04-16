@@ -14,6 +14,8 @@ class Register {
     $this->password2 = $password2;
     self::checkTheSamePasswords();
     self::fieldsEmpty();
+    self::userIsset();
+    self::addUserToDb();
 
     if($this->passwordsTheSame === true && $this->fieldsEmpty === true){
       self::createAccount();
@@ -68,7 +70,7 @@ class Register {
 
   private function addUserToDb(){
     try {
-      require_once './connect.db.php';
+      require './connect.db.php';
       $sql = 'INSERT INTO Users SET
         firstName = :firstName,
         lastName = :lastName,
@@ -77,14 +79,14 @@ class Register {
         date = CURDATE()
         ';
       $s = $pdo->prepare($sql);
-      $s->bindValue(':firstName', $_POST['firstName']);
-      $s->bindValue(':lastName', $_POST['lastName']);
-      $s->bindValue(':email', $_POST['email']);
-      $s->bindValue(':password', $_POST['password1']);
+      $s->bindValue(':firstName', $_POST['firstName'], PDO::PARAM_STR);
+      $s->bindValue(':lastName', $_POST['lastName'], PDO::PARAM_STR);
+      $s->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+      $s->bindValue(':password', SHA1($_POST['password1']), PDO::PARAM_STR);
       $s->execute();
     } catch (PDOException $e) {
-    $errorMsg = $e->getMessage().' '.$e->getLine();
-    include 'error.html.php';
+    echo '<p>'.$e->getMessage().' '.$e->getLine().'</p>';
+
     exit();
     }
   }
@@ -93,14 +95,10 @@ class Register {
     try {
       require_once './connect.db.php';
       $sql = 'SELECT email FROM Users WHERE email = :email';
-      $s = $pdo->query($sql);
-      $s->bindValue(':email', $_POST['email']);
+      $s = $pdo->prepare($sql);
+      $s->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
       $result = $s->execute();
-      if(array_sum($result) != 0){
-        echo '<p>Konto już istnieje</p>';
-
-        return $this->userIsset = false;
-      }
+      var_dump($result);
     } catch (PDOException $e){
       $errorMsg = $e->getMessage() . '<br>' . $e->getLine();
       echo '<p>'.$errorMsg.'</p>';

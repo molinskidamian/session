@@ -9,6 +9,12 @@
         <input type="email" name="email" placeholder="Adres e-mail" />
     </div>
     <div class="form-control">
+        <input type="text" name="firstName" placeholder="Podaj imię" />
+    </div>
+    <div class="form-control">
+        <input type="text" name="lastName" placeholder="Podaj nazwisko" />
+    </div>
+    <div class="form-control">
         <input type="password" name="password1" placeholder="Hasło" />
     </div>
     <div class="form-control">
