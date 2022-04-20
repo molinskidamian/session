@@ -15,7 +15,7 @@ class Register {
     self::checkTheSamePasswords();
     self::fieldsEmpty();
     self::userIsset();
-    self::addUserToDb();
+    // self::addUserToDb();
 
     if($this->passwordsTheSame === true && $this->fieldsEmpty === true){
       self::createAccount();
@@ -94,16 +94,31 @@ class Register {
   private function userIsset(){
     try {
       require_once './connect.db.php';
-      $sql = 'SELECT email FROM Users WHERE email = :email';
+      $sql = 'SELECT COUNT(email) FROM Users WHERE email = :email';
       $s = $pdo->prepare($sql);
       $s->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-      $result = $s->execute();
-      var_dump($result);
+      $s->execute();
+      $result = $s->fetchAll();
+      // var_dump($result);
+      print_r($result);
+
+      foreach ($result as $row) {
+      $users[] = array(
+      'id' => $row['id'],
+      'email' => $row['email']
+    );
+      if($result['email'] != 0){
+        echo '<p style="color: red;">takie konto już istnieje</p>';
+      } else {
+        echo '<p style="color: green;">Takiego konta jeszcze nie ma</p>';
+      }
+      // print_r(count($result));
     } catch (PDOException $e){
       $errorMsg = $e->getMessage() . '<br>' . $e->getLine();
       echo '<p>'.$errorMsg.'</p>';
       exit();
     }
+
 
   }
 }
