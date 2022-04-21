@@ -92,8 +92,9 @@ class Register {
   }
 
   private function userIsset(){
+    require_once './connect.db.php';
     try {
-      require_once './connect.db.php';
+
       $sql = 'SELECT COUNT(email) FROM Users WHERE email = :email';
       $s = $pdo->prepare($sql);
       $s->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
@@ -106,19 +107,18 @@ class Register {
       $users[] = array(
       'id' => $row['id'],
       'email' => $row['email']
-    );
-      if($result['email'] != 0){
-        echo '<p style="color: red;">takie konto już istnieje</p>';
-      } else {
-        echo '<p style="color: green;">Takiego konta jeszcze nie ma</p>';
+      );
+        if($result['email'] != 0){
+          echo '<p style="color: red;">takie konto już istnieje</p>';
+        } else {
+          echo '<p style="color: green;">Takiego konta jeszcze nie ma</p>';
+        }
+        // print_r(count($result));
       }
-      // print_r(count($result));
     } catch (PDOException $e){
-      $errorMsg = $e->getMessage() . '<br>' . $e->getLine();
-      echo '<p>'.$errorMsg.'</p>';
-      exit();
-    }
-
-
+        $errorMsg = $e->getMessage() . '<br>' . $e->getLine();
+        echo '<p>'.$errorMsg.'</p>';
+        exit();
+      }
   }
 }
