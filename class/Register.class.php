@@ -7,6 +7,7 @@ class Register {
   private $firstName;
   private $lastName;
   private $fieldsCompleted;
+  private $userInDb;
 
   public function __construct($email, $password1, $password2){
     $this->email = $email;
@@ -50,6 +51,10 @@ class Register {
         echo '<p style="color: red">Hasła różnią się od siebie.</p>';
       }
     }
+  }
+
+  private function checkIssetInDb(){
+    /* Stwórz metodę sprawdzającą, czy taki użytkownik istnieje w db. Jeśli nie to - $this->userInDb = false. Pamiętaj aby dodać ten warunke do metody saveUserInDb() */
   }
 
   private function saveUserInDb(){
