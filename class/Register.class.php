@@ -55,6 +55,26 @@ class Register {
 
   private function checkIssetInDb(){
     /* Stwórz metodę sprawdzającą, czy taki użytkownik istnieje w db. Jeśli nie to - $this->userInDb = false. Pamiętaj aby dodać ten warunke do metody saveUserInDb() */
+
+
+    /** Wykorzystaj może ANY */
+    try {
+      include './connect.db.php';
+      $sql = 'SELECT email FROM Users WHERE email = :email';
+      $s = $pdo->prepare($sql);
+      $s->bindValue(':email', $this->email);
+    } catch (PDOException $e){
+      $errorMsg = $e->getMessage() . '<br>' . $e->getLine();
+      include 'error.html.php';
+      exit();
+    }
+
+    foreach ($result as $row) {
+      $users[] = array(
+      'id' => $row['id'],
+      'name' => $row['name']
+    );
+    }
   }
 
   private function saveUserInDb(){
