@@ -1,9 +1,9 @@
 <?php
 
-class CreateTables extends Connect {
+class CreateTables {
 
-public function UsersTable(){
-    
-}
+  public function UsersTable(){
+
+  }
 }
 ?>
